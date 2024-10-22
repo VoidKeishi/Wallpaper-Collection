@@ -18,6 +18,7 @@ script_dir=$(dirname "$(realpath "$0")")
 rasi_file="$script_dir/wallpaper.rasi"
 wall_dir="$HOME/Pictures/Wallpapers"
 cacheDir="$HOME/.cache/$USER/cache"
+config_file="$HOME/.config/hypr/wallpaper.conf"
 # Create cache dir if not exists
 mkdir -p "${cacheDir}"
 
@@ -52,3 +53,4 @@ wall_selection=$(find "${wall_dir}" -type f \( -iname "*.jpg" -o -iname "*.jpeg"
 
 # Set wallpaper
 [[ -n "$wall_selection" ]] && swaybg -i $wall_dir/$wall_selection -m fill &
+echo "wallpaper=$wall_dir/$wall_selection" > "$config_file"
